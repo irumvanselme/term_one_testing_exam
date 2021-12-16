@@ -12,8 +12,6 @@ import rw.ac.rca.termOneExam.domain.City;
 import rw.ac.rca.termOneExam.dto.CreateCityDTO;
 import rw.ac.rca.termOneExam.utils.APICustomResponse;
 
-import java.util.Objects;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
