@@ -1,11 +1,9 @@
 package rw.ac.rca.termOneExam.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "item")
 public class City {
 
 	@Id
