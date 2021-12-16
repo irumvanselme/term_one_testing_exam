@@ -21,7 +21,7 @@ public class CityService {
         Optional<City> city = cityRepository.findById(id);
 
         // add a line to convert to set the degrees to farneheit
-        city.ifPresent(value -> value.setFahrenheit(converter(value.getWeather())));
+        city.ifPresent(value -> value.setFahrenheit(convert(value.getWeather())));
 
         return city;
     }
@@ -32,7 +32,7 @@ public class CityService {
 
         // add a for loop to set the degrees to farneheit
         for (City city : cities)
-            city.setFahrenheit(converter(city.getWeather()));
+            city.setFahrenheit(convert(city.getWeather()));
 
         return cities;
     }
@@ -48,7 +48,7 @@ public class CityService {
     }
 
 
-    public double converter(double celius) {
+    public double convert(double celius) {
         return (celius * 9 / 5) + 32;
     }
 }
