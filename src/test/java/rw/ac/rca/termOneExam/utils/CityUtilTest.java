@@ -28,31 +28,19 @@ public class CityUtilTest {
     private ICityRepository cityRepository;
 
     @Test
-    public void noCityWithWeatherMoreThan40_test(){
-        int citiesWithWeatherGreaterMoreThan40 = 0;
-        List<City> cities = cityRepository.findAll();
-        for (City city: cities)
-            if(city.getWeather() > 40)
-                citiesWithWeatherGreaterMoreThan40 ++;
+    public void noCityWithWeatherMoreThan40_test() {
 
-
-        assertEquals(0, citiesWithWeatherGreaterMoreThan40);
+        assertEquals(0, cityRepository.countByWeatherGreaterThan(40));
     }
 
     @Test
-    public void noCityWithWeatherLessThan10_test(){
-        int citiesWithWeatherGreaterLessThan10 = 0;
-        List<City> cities = cityRepository.findAll();
-        for (City city: cities)
-            if(city.getWeather() < 10 )
-                citiesWithWeatherGreaterLessThan10 ++;
+    public void noCityWithWeatherLessThan10_test() {
 
-
-        assertEquals(0, citiesWithWeatherGreaterLessThan10);
+        assertEquals(0, cityRepository.countByWeatherLessThan(10));
     }
 
     @Test
-    public void citiesContainsMusanzeAndKigali_test(){
+    public void citiesContainsMusanzeAndKigali_test() {
         assertTrue(cityRepository.existsByName("Musanze"));
 
         assertTrue(cityRepository.existsByName("Kigali"));
@@ -68,7 +56,7 @@ public class CityUtilTest {
         private CityService cityService;
 
         @Test
-        public void testSpying(){
+        public void testSpying() {
             when(cityRepositoryBySpy.findAll()).thenReturn(Arrays.asList(new City("Lisbon", 32), new City("Marseille", 32)));
 
             List<City> cities = cityService.getAll();
@@ -89,7 +77,7 @@ public class CityUtilTest {
         private CityService cityService;
 
         @Test
-        public void testMocking(){
+        public void testMocking() {
             when(cityRepositoryByMock.findAll()).thenReturn(Arrays.asList(new City("Lisbon", 32), new City("Marseille", 32)));
 
             List<City> cities = cityService.getAll();
