@@ -22,7 +22,6 @@ public class CityControllerIntegrationTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    // all
     @Test
     public void getAll_test() {
         ResponseEntity<String> response = restTemplate.getForEntity("/api/cities/all", String.class);
@@ -30,7 +29,6 @@ public class CityControllerIntegrationTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
-    // get by id success
     @Test
     public void getById_testSuccess() {
         ResponseEntity<City> response = restTemplate.getForEntity("/api/cities//id/101", City.class);
@@ -39,7 +37,6 @@ public class CityControllerIntegrationTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
-    // id not found
     @Test
     public void getById_testIdNotFound() {
         ResponseEntity<APICustomResponse> response = restTemplate.getForEntity("/api/cities//id/200", APICustomResponse.class);
@@ -50,7 +47,6 @@ public class CityControllerIntegrationTest {
     }
 
 
-    // create success
     @Test
     public void create_testSuccess() {
         CreateCityDTO dto = new CreateCityDTO();
@@ -63,7 +59,6 @@ public class CityControllerIntegrationTest {
         assertEquals("Bogota", response.getBody().getName());
     }
 
-    // name already registered
     @Test
     public void create_testNameAlreadyRegistered() {
         CreateCityDTO dto = new CreateCityDTO();
