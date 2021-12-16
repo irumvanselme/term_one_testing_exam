@@ -31,7 +31,7 @@ public class CityControllerIntegrationTest {
 
     @Test
     public void getById_testSuccess() {
-        ResponseEntity<City> response = restTemplate.getForEntity("/api/cities//id/101", City.class);
+        ResponseEntity<City> response = restTemplate.getForEntity("/api/cities/id/101", City.class);
 
         assertEquals("Kigali", response.getBody().getName());
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -45,7 +45,6 @@ public class CityControllerIntegrationTest {
         assertEquals("City not found with id 200", response.getBody().getMessage());
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
-
 
     @Test
     public void create_testSuccess() {
