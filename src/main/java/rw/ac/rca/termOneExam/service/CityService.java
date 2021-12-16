@@ -44,6 +44,7 @@ public class CityService {
 
     public City save(CreateCityDTO dto) {
         City city = new City(dto.getName(), dto.getWeather());
+        city.setFahrenheit(converter(dto.getWeather()));
         return cityRepository.save(city);
     }
 
