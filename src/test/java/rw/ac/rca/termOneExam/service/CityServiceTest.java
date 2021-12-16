@@ -52,7 +52,7 @@ public class CityServiceTest {
 
 
     @Test
-    public void create_testSuccess() {
+    public void save_testSuccess() {
         when(iCityRepository.save(any(City.class))).thenReturn(new City("Denver", 21));
 
         CreateCityDTO dto = new CreateCityDTO();
