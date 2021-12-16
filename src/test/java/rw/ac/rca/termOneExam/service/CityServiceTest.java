@@ -72,13 +72,17 @@ public class CityServiceTest {
 
     @Test
     public void converterTest_Zero(){
-        assertEquals(32, cityService.convert(0));
+        assertEquals(32, cityService.converter(0));
     }
 
     @Test
     public void converterTest_Any(){
-        assertEquals(93.2, cityService.convert(34));
+        assertEquals(93.2, cityService.converter(34));
     }
 
+    @Test
+    public void converterTest_100(){
+        assertEquals(212, cityService.converter(100));
+    }
 
 }

@@ -39,7 +39,7 @@ public class CityControllerIntegrationTest {
 
     @Test
     public void getById_testIdNotFound() {
-        ResponseEntity<APICustomResponse> response = restTemplate.getForEntity("/api/cities//id/200", APICustomResponse.class);
+        ResponseEntity<APICustomResponse> response = restTemplate.getForEntity("/api/cities/id/200", APICustomResponse.class);
 
         assertFalse(response.getBody().isStatus());
         assertEquals("City not found with id 200", response.getBody().getMessage());
